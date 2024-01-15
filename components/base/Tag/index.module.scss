@@ -1,0 +1,23 @@
+.tag {
+  @apply h-3.5 px-2 py-0.5 flex items-center text-n-1 rounded w-fit #{!important};
+
+  &.default {
+    @apply bg-n-8;
+  }
+
+  &.danger {
+    @apply bg-danger-500;
+  }
+
+  &.warning {
+    @apply bg-warning-500;
+  }
+
+  &.success {
+    @apply bg-success-500;
+  }
+
+  &.primary {
+    @apply bg-primary-500;
+  }
+}
