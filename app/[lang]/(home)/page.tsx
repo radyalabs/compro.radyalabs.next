@@ -22,6 +22,8 @@ const Home = async ({ params: { lang } }: { params: { lang: Locale } }) => {
           id,
           content,
           content_en,
+          slug,
+          slug_en,
           title,
           title_en,
           image,
@@ -32,7 +34,9 @@ const Home = async ({ params: { lang } }: { params: { lang: Locale } }) => {
             key={id}
             description={lang === 'id' ? content : content_en || ''}
             highlighted={i === 0}
+            locale={lang}
             title={lang === 'id' ? title : title_en || ''}
+            slug={lang === 'id' ? slug : slug_en || ''}
             imagePath={image}
             date={created_at || new Date()}
             category={category}

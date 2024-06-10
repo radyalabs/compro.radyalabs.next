@@ -20,6 +20,10 @@ code {
   monospace;
 }
 
+a {
+  @apply no-underline;
+}
+
 /*Hide input number arrow*/
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,

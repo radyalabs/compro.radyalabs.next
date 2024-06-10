@@ -31,7 +31,6 @@ export const middleware = (request: NextRequest) => {
   const pathnameIsMissingLocale = i18n.locales.every(
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`,
   );
-
   // Redirect if there is no locale
   if (pathnameIsMissingLocale) {
     const locale = getLocale(request);
@@ -49,5 +48,5 @@ export const middleware = (request: NextRequest) => {
 };
 
 export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|.).*)'],
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|storage).*)'],
 };
