@@ -19,7 +19,7 @@ const Post = ({
   slug,
   title,
 }: PostProps) => (
-  <div className={`h-128 w-full relative bg-clip-border bg-n-1 rounded-xl hover:[&>*>*>img]:scale-110 overflow-hidden ${className} ${highlighted ? 'col-start-2 col-span-2 row-start-1 grid grid-cols-2' : ''}`}>
+  <div className={`h-128 w-full relative bg-clip-border bg-n-1 rounded-xl hover:[&>*>*>img]:scale-110 overflow-hidden drop-shadow ${className} ${highlighted ? 'col-start-2 col-span-2 row-start-1 grid grid-cols-2' : ''}`}>
     <div className="h-full w-full relative overflow-hidden">
       <div className="absolute top-0 p-4 z-10">
         <Tag color="warning" label={category} />
@@ -28,7 +28,7 @@ const Post = ({
         <Image
           src={`${imagePath}`}
           alt=""
-          className="h-full w-full object-cover rounded-xl overflow-clip transition-transform"
+          className={`h-full w-full object-cover rounded-xl overflow-clip transition-transform ${highlighted && 'rounded-br-none'}`}
           width={360}
           height={750}
         />

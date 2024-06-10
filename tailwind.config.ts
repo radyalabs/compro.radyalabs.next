@@ -21,6 +21,9 @@ export default {
       secondary: ['var(--font-quicksand)', 'sans-serif'],
     },
     extend: {
+      backgroundImage: {
+        'brand-sidebar': 'url(\'../assets/bg_brand.svg\')',
+      },
       colors: {
         primary: {
           50: '#e8f6fe',
@@ -28,7 +31,7 @@ export default {
           200: '#95d5fa',
           300: '#64c2f8',
           400: '#46b6f7',
-          500: '#18a4f5',
+          500: '#18a4e1',
           600: '#1695df',
           700: '#1174ae',
           800: '#0d5a87',
@@ -123,6 +126,7 @@ export default {
         },
       },
       spacing: {
+        15: '3.75rem',
         86: '21.5rem',
         128: '32rem',
         144: '36rem',
