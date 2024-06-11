@@ -8,8 +8,22 @@ import { PrismaClient } from '@prisma/client';
 
 const globalForPrisma = global as unknown as { prisma: PrismaClient };
 
-const prisma = globalForPrisma.prisma || new PrismaClient();
+const prisma = globalForPrisma.prisma || new PrismaClient({
+  log: [{
+    emit: 'event',
+    level: 'query',
+  }],
+});
 
-if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
+if (process.env.NODE_ENV !== 'production') {
+  globalForPrisma.prisma = prisma;
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  prisma.$on<string>('query', (e: Record<string, unknown>) => {
+    console.log(`Query: ${e.query}`);
+    console.log(`Params: ${e.params}`);
+    console.log(`Duration: ${e.duration}ms`);
+  });
+}
 
 export default prisma;

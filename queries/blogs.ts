@@ -1,5 +1,3 @@
-import type { Locale } from 'i18n-config';
-
 import prisma from '@/lib/prisma';
 import type { BlogQueryParams } from '@/types/blogs';
 
@@ -30,19 +28,25 @@ const getBlogs = (queryParams?: BlogQueryParams) => {
   });
 };
 
-const getBlogBySlug = (slug: string, locale: Locale) => (
+const getBlogBySlug = (slug: string) => (
   prisma.blog.findFirst({
     where: {
-      ...locale === 'id' ? {
-        slug,
-      } : {
-        slug_en: slug,
-      },
+      OR: [{ slug }, { slug_en: slug }],
     },
     include: {
+      master_category: {
+        select: {
+          category: true,
+        },
+      },
       comment: {
         where: {
           is_active: true,
+        },
+      },
+      blog_tag: {
+        select: {
+          tag: true,
         },
       },
     },

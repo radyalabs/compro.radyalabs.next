@@ -21,7 +21,7 @@ code {
 }
 
 a {
-  @apply no-underline;
+  @apply no-underline hover:underline text-primary-500 hover:text-primary-700;
 }
 
 /*Hide input number arrow*/
@@ -39,4 +39,8 @@ input[type='number']::-webkit-inner-spin-button {
 
 input[type='number'] {
   -moz-appearance: textfield;
+}
+
+img {
+  max-width: 100%;
 }

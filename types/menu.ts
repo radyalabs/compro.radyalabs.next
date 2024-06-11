@@ -4,6 +4,6 @@ export interface Menu {
   id: string;
   path: string;
   name: string;
-  icon: ReactNode,
+  icon?: ReactNode,
   subMenu?: Menu[];
 }
